@@ -1,7 +1,7 @@
 # Ensure the Subscriber module is loaded first
-require_dependency Rails.root.join("app/lib/domain_events/subscriber")
+require_dependency Rails.root.join("app/lib/domain_event/subscriber")
 
-module DomainEvents
+module DomainEvent
   def self.subscribe(event_name, handler)
     ActiveSupport::Notifications.subscribe(event_name) do |*args|
       event = ActiveSupport::Notifications::Event.new(*args)
@@ -22,4 +22,4 @@ module DomainEvents
   end
 end
 
-DomainEvents.register_all
+DomainEvent.register_all

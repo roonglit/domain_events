@@ -1,7 +1,7 @@
 module Orders
   module OrderCreated
     class SendConfirmationEmail
-      include DomainEvents::Subscriber
+      include DomainEvent::Subscriber
 
       handles_event "order.created"
 

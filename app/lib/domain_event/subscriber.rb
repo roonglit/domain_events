@@ -1,4 +1,4 @@
-module DomainEvents
+module DomainEvent
   module Subscriber
     def self.included(base)
       base.extend ClassMethods
@@ -7,7 +7,7 @@ module DomainEvents
     module ClassMethods
       def handles_event(name)
         @event_name = name
-        DomainEvents.registry << self
+        DomainEvent.registry << self
       end
 
       def event_name
